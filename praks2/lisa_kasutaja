@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# Skripti valmistamine 
+# Kasutaja loomine ilma paroolita
+#
+echo -n "Sisesta kasutajnimi: "
+read kasutaja
+useradd $kasutaja -m -s /bin/bash
+
+# Lõpp
