@@ -3,8 +3,9 @@
 # Skripti valmistamine 
 # Kasutaja loomine ilma paroolita
 #
-echo -n "Sisesta kasutajnimi: "
-read kasutaja
+#echo -n "Sisesta kasutajnimi: "
+#read kasutaja
+kasutaja=$1
 useradd $kasutaja -m -s /bin/bash
 
 # Lõpp
