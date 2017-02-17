@@ -1,0 +1,31 @@
+#!/bin/bash
+#
+#
+kasutaja=$1
+dir=/home/$kasutaja/public/
+#
+# Kausta olemasolu kontroll, kui kausta pole, valmistatakse uus
+#
+	if [ -d $dir ]; then
+		perm=$(stat -c %a $dir)
+		echo "Public kaust on olemas"
+	else
+	sh ./lisa_public $kasutaja
+	echo "Public kausta pole olemas"
+	echo "Loodud kasutajale $kasutaja public kaust"
+	exit
+fi
+#
+# 6iguste lisamine kui 6igused 777 on puudulikud
+#
+	if [ $perm = "777" ]; then
+	echo "õigused on 777"
+	else
+	chmod 777 /home/$kasutaja/public/
+	echo "Kasutaja õigused muudetud 777"
+fi
+
+##
+##
+##
+### L6pp
