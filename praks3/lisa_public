@@ -1,3 +1,24 @@
 #!/bin/bash
 #
+# kasutaja loomine k2surealt koos nimega
 #
+kasutaja=$1
+#
+# kausta loomine ning seadistamine
+#
+mkdir /home/$kasutaja/public
+#
+# 6iguste m22ramine kasutajakontole
+#
+chown -R $kasutaja:$kasutaja /home/$kasutaja/public
+chmod 751 /home/$kasutaja/public
+if [ $? -eq 0 ]; then
+	echo "Kasutaja nimega Â$kasutaja kodukaustas public valmistatud"
+	cat /etc/passwd | grep $kasutaja
+	ls -la /home/$kasutajanimi
+else
+	echo "Probleem $kasutaja lisamisega"
+	echo "Veaks on kood $?"
+fi
+#
+# L6pp
