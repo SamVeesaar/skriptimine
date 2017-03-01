@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# .my.cnf kontrollimine ning kasutaja andmebaas
+#
+#
+for kasutaja in $(ls /home)
+do
+	if [ ! -f /home/$kasutaja/.my.cnf ]; then
+		sh lisa_db $kasutaja
+		echo " $kasutaja valmistati koos conf failiga"
+	else
+		echo "kasutaja" $kasutaja ".my.cnf juba eksisteerib"
+	fi
+done
+#
+#
+#
+### L6pp
